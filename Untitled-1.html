@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema de Vendas</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+      <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#cadastros">Cadastros</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#compras">Compras</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#vendas">Vendas</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#relatorios">Relatórios</a></li>
+    </ul>
+
+    <div class="tab-content mt-3">
+      <!-- Cadastros -->
+      <div class="tab-pane fade show active" id="cadastros">
+        <h3>Cadastro de Cliente</h3>
+        <form id="formCliente">
+          <input type="text" id="clienteNome" placeholder="Nome do Cliente" required />
+          <input type="text" id="clienteCPF" placeholder="CPF" required />
+          <input type="text" id="clienteCidade" placeholder="Cidade" required />
+          <input type="text" id="clienteEstado" placeholder="Estado" required />
+          <button type="submit">Cadastrar Cliente</button>
+        </form>
+
+        <h3>Cadastro de Fornecedor</h3>
+        <form id="formFornecedor">
+          <input type="text" id="fornecedorNome" placeholder="Nome do Fornecedor" required />
+          <input type="text" id="fornecedorCNPJ" placeholder="CNPJ" required />
+          <input type="text" id="fornecedorCidade" placeholder="Cidade" required />
+          <input type="text" id="fornecedorEstado" placeholder="Estado" required />
+          <button type="submit">Cadastrar Fornecedor</button>
+        </form>
+
+        <h3>Cadastro de Produto</h3>
+        <form id="formProduto">
+          <input type="text" id="produtoNome" placeholder="Nome do Produto" required />
+          <select id="produtoFornecedor" required></select>
+          <button type="submit">Cadastrar Produto</button>
+        </form>
+      </div>
+
+      <!-- Compras -->
+      <div class="tab-pane fade" id="compras">
+        <h3>Registrar Compra</h3>
+        <form id="formCompra">
+          <select id="compraProduto" required></select>
+          <input type="number" id="compraQuantidade" placeholder="Quantidade" required />
+          <input type="number" id="compraPrecoCompra" placeholder="Preço de Compra" step="0.01" required />
+          <input type="number" id="compraICMS" placeholder="ICMS da Compra (%)" step="0.01" required />
+          <select id="compraCreditoDebito" required>
+            <option value="Crédito">Crédito</option>
+            <option value="Débito">Débito</option>
+          </select>
+          <button type="submit">Registrar Compra</button>
+        </form>
+      </div>
+
+      <!-- Vendas -->
+      <div class="tab-pane fade" id="vendas">
+        <h3>Registrar Venda</h3>
+        <form id="formVenda">
+          <select id="vendaProduto" required></select>
+          <select id="vendaCliente" required></select>
+          <input type="number" id="vendaQuantidade" placeholder="Quantidade" required />
+          <input type="number" id="vendaICMS" placeholder="ICMS da Venda (%)" step="0.01" required />
+          <input type="number" id="vendaPreco" placeholder="Preço de Venda" step="0.01" required />
+          <select id="vendaPagamento" required>
+            <option value="À Vista">À Vista</option>
+            <option value="A Prazo">A Prazo</option>
+          </select>
+          <button type="submit">Registrar Venda</button>
+        </form>
+      </div>
+
+      <!-- Relatórios -->
+      <div class="tab-pane fade" id="relatorios">
+        <h3>Relatório de Estoque</h3>
+        <table id="stock-report">
+          <thead><tr><th>Produto</th><th>Estoque</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <h3>Relatório de Vendas</h3>
+        <table id="sales-report">
+          <thead><tr><th>Produto</th><th>Quantidade Vendida</th><th>Total</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <h3>Relatório de Custo e Lucro</h3>
+        <table id="cost-profit-report">
+          <thead><tr><th>Produto</th><th>Custo</th><th>Lucro</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
